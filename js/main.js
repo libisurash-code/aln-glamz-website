@@ -248,89 +248,6 @@
       });
     }
 
-    const story = $('#about');
-    const storyImage = $('#story-desktop-image');
-    const slides = $$('.story-slide');
-    if (story && storyImage && slides.length) {
-      const mm = gsap.matchMedia();
-      mm.add('(min-width: 1024px)', () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: story,
-            start: 'top top',
-            end: '+=400%',
-            pin: true,
-            scrub: 1,
-          },
-        });
-        tl.to(storyImage, { scale: 1.08, duration: 4 }, 0);
-        slides.forEach((slide, i) => {
-          const start = i;
-          const line = slide.querySelector('.gold-line');
-          tl.fromTo(slide, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5 }, start);
-          if (line) tl.to(line, { width: '100%', duration: 0.5 }, start);
-          tl.to(slide, { opacity: 0, y: -50, duration: 0.5 }, start + 0.8);
-        });
-      });
-
-      mm.add('(max-width: 1023px)', () => {
-        const stage = $('#story-mobile-stage');
-        const layout = stage?.querySelector('.story-mobile-stage-layout');
-        const panels = $$('.story-mobile-panel');
-        const mobileImage = $('#story-mobile-sticky-inner');
-
-        if (!stage || !layout || !panels.length) return;
-
-        gsap.set(panels, { opacity: 0, y: 40 });
-
-        // Compute per-panel height so each panel fits approximately one mobile viewport
-        const rootStyles = getComputedStyle(document.documentElement);
-        const navH = parseInt(rootStyles.getPropertyValue('--nav-h')) || 72;
-        const gap = 8; // px gap between image and text (reduced to prevent large empty space)
-        const panelHeight = window.innerHeight - navH - gap;
-        const totalHeight = panelHeight * panels.length;
-
-        // Ensure stage occupies the total scroll space required
-        stage.style.height = `${totalHeight}px`;
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: stage,
-            start: 'top top',
-            end: `+=${totalHeight}`,
-            pin: stage,
-            pinSpacing: false,
-            scrub: 1,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        if (mobileImage) {
-          tl.to(mobileImage, { scale: 1.06, duration: 4, ease: 'none' }, 0);
-        }
-
-        panels.forEach((panel, i) => {
-          const line = panel.querySelector('.gold-line');
-          const start = i;
-          tl.fromTo(
-            panel,
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-            start
-          );
-          if (line) {
-            tl.fromTo(line, { width: 0 }, { width: '60px', duration: 0.45, ease: 'power2.out' }, start);
-          }
-          tl.to(
-            panel,
-            { opacity: 0, y: -40, duration: 0.5, ease: 'power2.in' },
-            start + 0.75
-          );
-        });
-      });
-    }
-
     const bridal = $('#bridal');
     const bridalBg = $('#bridal-bg');
     if (bridal && bridalBg) {
@@ -347,57 +264,6 @@
           },
         });
       });
-    }
-  }
-
-  /* ——— Compare slider ——— */
-  function initCompareSlider() {
-    const slider = $('#compare-slider');
-    const afterWrap = $('#compare-after');
-    const handle = $('#compare-handle');
-    if (!slider || !afterWrap || !handle) return;
-
-    let pos = 50;
-    let dragging = false;
-
-    const setPos = (pct) => {
-      pos = Math.max(0, Math.min(100, pct));
-      afterWrap.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
-      handle.style.left = `${pos}%`;
-    };
-
-    const move = (clientX) => {
-      const r = slider.getBoundingClientRect();
-      setPos(((clientX - r.left) / r.width) * 100);
-    };
-
-    slider.addEventListener('mousedown', (e) => {
-      dragging = true;
-      move(e.clientX);
-    });
-    slider.addEventListener('touchstart', (e) => {
-      dragging = true;
-      move(e.touches[0].clientX);
-    }, { passive: true });
-
-    window.addEventListener('mousemove', (e) => dragging && move(e.clientX));
-    window.addEventListener('touchmove', (e) => dragging && move(e.touches[0].clientX), { passive: true });
-    window.addEventListener('mouseup', () => (dragging = false));
-    window.addEventListener('touchend', () => (dragging = false));
-  }
-
-  /* ——— Transform particles ——— */
-  function initParticles() {
-    const section = $('#transform');
-    if (!section) return;
-    for (let i = 0; i < 12; i++) {
-      const p = document.createElement('div');
-      p.className = 'transform-particle';
-      p.style.left = `${(i * 8.3) % 100}%`;
-      p.style.top = `${(i * 13 + 10) % 90}%`;
-      p.style.animationDuration = `${6 + (i % 5)}s`;
-      p.style.animationDelay = `${i * 0.4}s`;
-      section.appendChild(p);
     }
   }
 
@@ -492,8 +358,6 @@
     initMagnet();
     initReveal();
     initFooterLine();
-    initCompareSlider();
-    initParticles();
     initBridalDots();
     initBookingForm();
     initHeroSlideshow();
