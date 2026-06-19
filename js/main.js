@@ -176,7 +176,7 @@
   }
 
   /* Change hero images here (replace filenames in assets/). */
-  const heroImages = ['assets/hero1.png', 'assets/hero2.png', 'assets/hero3.png'];
+  const heroImages = ['assets/heronew1.jpeg', 'assets/heronew2.avif', 'assets/heronew3.jpg'];
 
   function initHeroSlideshow() {
     const container = $('#hero-bg');

@@ -2062,3 +2062,828 @@ button, input, select, textarea {
 .hero .fade-up.delay-5 { animation-delay: 1.8s; }
 @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
 @keyframes heroFadeUpText { to { opacity: 0.85; transform: translateY(0); } }
+
+/* --- Mobile responsive cleanup --- */
+@media (max-width: 768px) {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  .container,
+  .story-inner,
+  .services-inner,
+  .promise-inner,
+  .social-inner,
+  .footer-inner {
+    width: min(100% - 1.5rem, 34rem);
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  .hero {
+    min-height: 86svh;
+    align-items: center;
+  }
+
+  .hero-slideshow,
+  .hero-slide,
+  .hero-slide img {
+    height: 100%;
+  }
+
+  .hero-slide img {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 5.5rem 1rem 4.75rem;
+    text-align: center !important;
+  }
+
+  .hero-tag {
+    max-width: 20rem;
+    margin-inline: auto;
+    font-size: 0.56rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.15rem, 10vw, 2.625rem);
+    line-height: 1.08;
+  }
+
+  .hero-desc {
+    max-width: 21rem;
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: min(100%, 20rem);
+    max-width: 20rem;
+    gap: 0.75rem;
+    justify-content: center !important;
+    margin-inline: auto;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-scroll {
+    bottom: 1rem;
+  }
+
+  .story,
+  .about-aleena,
+  .services,
+  .promise-section,
+  .packages,
+  .gallery,
+  .social {
+    padding-block: 3.5rem;
+  }
+
+  .story-inner {
+    padding: 0;
+  }
+
+  .story-heading {
+    margin-bottom: 2rem;
+  }
+
+  .story-heading h2,
+  .story-editorial-copy h3,
+  .story-experience-copy h3,
+  .services-header h2,
+  .promise-header h2,
+  .promise-copy h3,
+  .packages-header h2,
+  .gallery-header h2,
+  .social-inner h2,
+  .booking-header h2,
+  .contact-map-copy h2,
+  .full-gallery-header h1 {
+    font-size: clamp(1.9rem, 8.8vw, 2.25rem);
+    line-height: 1.08;
+  }
+
+  .story-heading,
+  .services-header,
+  .promise-header,
+  .packages-header,
+  .gallery-header {
+    text-align: center;
+  }
+
+  .story-editorial,
+  .story-experience,
+  .about-aleena-inner,
+  .services-editorial-row,
+  .services-editorial-row-second,
+  .promise-editorial,
+  .contact-map-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .about-aleena-inner {
+    display: flex;
+    flex-direction: column !important;
+    gap: 1.75rem;
+  }
+
+  .story-editorial {
+    margin-bottom: 3rem;
+  }
+
+  .story-editorial-image,
+  .story-experience-image,
+  .services-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .story-editorial-image {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .story-editorial-copy,
+  .story-experience-copy,
+  .about-aleena-text-column,
+  .promise-copy,
+  .contact-map-copy {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .story-editorial-copy,
+  .story-experience-copy,
+  .about-aleena-text-column {
+    text-align: center;
+  }
+
+  .story-editorial-copy p,
+  .story-experience-copy p,
+  .about-aleena-intro,
+  .about-aleena-secondary,
+  .services-header p,
+  .promise-header p,
+  .packages-header p:last-child {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .story-experience {
+    padding: 1.25rem;
+  }
+
+  .story-experience-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .story-experience-image-portrait,
+  .story-experience-image-tall {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .story-divider-left {
+    margin-inline: auto;
+  }
+
+  .story-button,
+  .about-aleena-btn,
+  .promise-button,
+  .gallery-preview-actions .btn,
+  .package-btn,
+  .booking-form .btn,
+  .booking-whatsapp a {
+    width: min(100%, 20rem);
+    justify-content: center;
+  }
+
+  .about-aleena::before {
+    display: none;
+  }
+
+  .about-aleena-image-column {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-aleena-image-column img {
+    width: 100%;
+    border-radius: 0.75rem;
+  }
+
+  .about-aleena-header {
+    margin-bottom: 1rem;
+  }
+
+  .about-aleena-heading {
+    font-size: clamp(2rem, 9vw, 2.4rem);
+  }
+
+  .services-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .services-editorial-row,
+  .services-editorial-row-second {
+    margin-bottom: 3rem;
+  }
+
+  .services-image-portrait,
+  .services-image-group {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .services-list {
+    width: 100%;
+  }
+
+  .services-list a {
+    width: 100%;
+    min-height: 3.25rem;
+    gap: 1rem;
+    font-family: var(--font-sans);
+    font-size: clamp(0.82rem, 3.8vw, 0.94rem);
+    line-height: 1.35;
+    letter-spacing: 0.08em;
+  }
+
+  .services-list a span:first-child {
+    min-width: 0;
+  }
+
+  .services-list a span:last-child {
+    margin-left: auto;
+    font-size: 1rem;
+  }
+
+  .transform {
+    min-height: 85svh;
+    align-items: center;
+  }
+
+  .price-list-bg {
+    background-position: center top;
+  }
+
+  .price-list-content {
+    width: min(100% - 1.5rem, 32rem);
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+
+  .price-list-script {
+    font-size: clamp(1.75rem, 10vw, 2.5rem);
+  }
+
+  .price-list-content h2 {
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
+  }
+
+  .price-list-items {
+    margin-bottom: 1.5rem;
+  }
+
+  .price-list-item {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.35rem;
+    padding: 0.85rem 0;
+    text-align: center;
+  }
+
+  .price-list-item h3 {
+    font-size: clamp(1rem, 5vw, 1.28rem);
+  }
+
+  .price-list-item strong {
+    grid-column: auto;
+    font-size: clamp(1.15rem, 5vw, 1.45rem);
+  }
+
+  .price-list-note {
+    font-size: 0.74rem;
+  }
+
+  .price-list-button {
+    width: min(100%, 20rem);
+  }
+
+  .promise-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .promise-gallery img {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .promise-collage {
+    min-height: 0;
+  }
+
+  .promise-collage-main {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .promise-collage-small {
+    width: 42%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-width: 0.35rem;
+  }
+
+  .promise-copy {
+    text-align: center;
+  }
+
+  .promise-divider-left {
+    margin-inline: auto;
+  }
+
+  .promise-checklist {
+    text-align: left;
+  }
+
+  .promise-button {
+    margin-inline: auto;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+
+  .package-card {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .package-image {
+    aspect-ratio: 4 / 4.8;
+  }
+
+  .package-card h3 {
+    font-size: 1.85rem;
+  }
+
+  .package-card ul {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .package-btn {
+    margin-inline: auto;
+  }
+
+  .gallery-grid-mobile {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  .gallery-item {
+    width: 100%;
+  }
+
+  .gallery-preview-actions {
+    margin-top: 2rem;
+  }
+
+  .booking {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+
+  .booking-card {
+    width: min(100% - 1.5rem, 34rem);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .booking-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  .booking-whatsapp a {
+    display: inline-flex;
+    margin-inline: auto;
+  }
+
+  .contact-map {
+    padding: 2.5rem 0;
+  }
+
+  .contact-map-copy {
+    text-align: center;
+  }
+
+  .contact-map-frame {
+    aspect-ratio: 1 / 1;
+    border-radius: 0.75rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    margin-inline: auto;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 768px) {
+  .gallery-grid-mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 389px) {
+  .story-experience-images,
+  .promise-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.05rem;
+  }
+}
+
+/* --- Services phone poster layout --- */
+@media (max-width: 768px) {
+  .services {
+    padding-block: 3.75rem;
+  }
+
+  .services-inner {
+    width: min(100% - 1.5rem, 34rem);
+  }
+
+  .services-header {
+    max-width: 21rem;
+    margin-bottom: 2.75rem;
+    text-align: center;
+  }
+
+  .services-kicker {
+    font-size: 0.43rem;
+    letter-spacing: 0.24em;
+    line-height: 1.5;
+    margin-bottom: 0.55rem;
+  }
+
+  .services-header h2 {
+    font-size: clamp(2rem, 8.6vw, 2.45rem);
+    line-height: 0.98;
+    margin-bottom: 0.8rem;
+  }
+
+  .services-header p {
+    max-width: 18rem;
+    font-size: 0.58rem;
+    line-height: 1.65;
+  }
+
+  .services-divider {
+    width: 3.4rem;
+    margin-top: 1rem;
+  }
+
+  .services-editorial-row,
+  .services-editorial-row-second {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    gap: clamp(1.1rem, 4.5vw, 1.8rem);
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .services-editorial-row-second {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    margin-bottom: 0;
+  }
+
+  .services-image-portrait,
+  .services-image-group {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4.25;
+  }
+
+  .services-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .services-list-block {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .services-list-block .services-kicker {
+    margin-bottom: 0.45rem;
+    text-align: left;
+  }
+
+  .services-list a {
+    min-height: 1.95rem;
+    gap: 0.45rem;
+    padding-block: 0.32rem;
+    font-family: var(--font-serif);
+    font-size: clamp(0.82rem, 3.5vw, 1rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+  }
+
+  .services-list a span:first-child {
+    overflow-wrap: anywhere;
+  }
+
+  .services-list a span:last-child {
+    font-size: 0.64rem;
+  }
+}
+
+/* --- Philosophy phone poster layout --- */
+@media (max-width: 768px) {
+  .story {
+    padding-block: 3.5rem;
+  }
+
+  .story-inner {
+    width: min(100% - 1.5rem, 34rem);
+    padding: 0;
+  }
+
+  .story-heading {
+    max-width: 22rem;
+    margin-bottom: 2.75rem;
+    text-align: center;
+  }
+
+  .story-kicker {
+    font-size: 0.43rem;
+    letter-spacing: 0.24em;
+    line-height: 1.5;
+    margin-bottom: 0.65rem;
+  }
+
+  .story-heading h2 {
+    font-size: clamp(1.95rem, 8.4vw, 2.45rem);
+    line-height: 1.02;
+  }
+
+  .story-divider {
+    width: 3.4rem;
+    margin-top: 1rem;
+  }
+
+  .story-editorial {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(1.2rem, 5vw, 1.9rem);
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .story-editorial-image {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 3 / 4.25;
+  }
+
+  .story-editorial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .story-editorial-copy {
+    min-width: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .story-editorial-copy h3 {
+    font-size: clamp(1.42rem, 6vw, 1.85rem);
+    line-height: 0.98;
+    margin-bottom: 0.85rem;
+  }
+
+  .story-editorial-copy p {
+    font-size: clamp(0.5rem, 2vw, 0.64rem);
+    line-height: 1.65;
+    margin-bottom: 0.55rem;
+  }
+
+  .story-button {
+    width: auto;
+    min-height: 2rem;
+    margin-top: 0.45rem;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.43rem;
+    letter-spacing: 0.14em;
+  }
+
+  .story-experience {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    gap: clamp(1rem, 4.5vw, 1.65rem);
+    align-items: center;
+    padding: 2rem 1.25rem;
+  }
+
+  .story-experience-copy {
+    min-width: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .story-experience-copy h3 {
+    font-size: clamp(1.5rem, 6.5vw, 2rem);
+    line-height: 0.98;
+    margin-bottom: 0.7rem;
+  }
+
+  .story-experience-copy p {
+    font-size: clamp(0.5rem, 2vw, 0.64rem);
+    line-height: 1.65;
+  }
+
+  .story-divider-left {
+    margin: 0.9rem 0 0;
+  }
+
+  .story-experience-images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .story-experience-image-portrait,
+  .story-experience-image-tall {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 3 / 4.25;
+  }
+
+  .story-experience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* --- Promise phone gallery sizing --- */
+@media (max-width: 768px) {
+  .promise-gallery {
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+
+  .promise-gallery img {
+    aspect-ratio: 4 / 4.8;
+  }
+}
+
+/* --- Promise editorial phone poster layout --- */
+@media (max-width: 768px) {
+  .promise-editorial {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(1.2rem, 5vw, 1.9rem);
+    align-items: center;
+  }
+
+  .promise-collage {
+    min-height: 0;
+    width: 100%;
+  }
+
+  .promise-collage-main {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4.2;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .promise-collage-small {
+    right: 0.2rem;
+    bottom: -0.85rem;
+    width: 42%;
+    height: auto;
+    aspect-ratio: 3 / 4.05;
+    border-width: 0.28rem;
+  }
+
+  .promise-copy {
+    min-width: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .promise-copy .promise-label {
+    font-size: 0.43rem;
+    letter-spacing: 0.22em;
+    line-height: 1.45;
+    margin-bottom: 0.65rem;
+  }
+
+  .promise-copy h3 {
+    font-size: clamp(1.48rem, 6.4vw, 2rem);
+    line-height: 0.98;
+    margin-bottom: 0.75rem;
+  }
+
+  .promise-divider-left {
+    width: 3.3rem;
+    margin: 0 0 0.8rem;
+  }
+
+  .promise-checklist {
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .promise-checklist li {
+    font-size: clamp(0.5rem, 2vw, 0.63rem);
+    line-height: 1.45;
+    padding-left: 0.85rem;
+  }
+
+  .promise-checklist li::before {
+    font-size: 0.58rem;
+  }
+
+  .promise-button {
+    width: auto;
+    min-height: 2.1rem;
+    margin-inline: 0;
+    padding: 0.58rem 0.95rem;
+    font-size: 0.43rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* --- Promise four-image phone scale --- */
+@media (max-width: 768px) {
+  .promise-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(72vw, 16rem);
+    max-width: 16rem;
+    gap: 0.4rem;
+  }
+
+  .promise-gallery img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+  }
+}
